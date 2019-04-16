@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Video Streaming Demonstration</title>
+
+    <style>
+        #videoElement {
+        width: 500px;
+        height: 375px;
+        background-color: #666;
+        }
+    </style>
+
+</head>
+ 
+<body>
+
+    <h1>Video Streaming Demonstration</h1>
+    <img id="videoElement" src="{{ url_for('video_feed') }}">
+
+<script>
+        var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      Video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+</script>
+
+</body>
+</html>
